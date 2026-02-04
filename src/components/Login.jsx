@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
 import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+import axios from "../utils/axios";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
