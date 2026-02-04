@@ -1,0 +1,52 @@
+---- For submit function in PostForm.jsx ----
+
+❌ What I did wrong (initially)
+
+Tried to send image directly in axios (dontKnow) instead of using FormData
+Didn’t know that file uploads must use multipart/form-data
+Mixed up axios.post / put argument order (data vs config)
+Forgot to pass post ID while updating (PUT /api/posts/:id)
+Still had Appwrite-related code in UI (getFilePreview)
+Mixed create and update logic without clear separation
+
+Didn’t have a clear mental flow of:
+image upload → DB save → navigation
+
+✅ What I learned (important)
+
+Submit function is an orchestrator, not just a save function
+File upload must be done using FormData
+Image upload and post creation/update are two separate steps
+Same form can handle create and update by checking if post exists
+Backend should handle image deletion (clean separation of concerns)
+
+Axios syntax is:
+axios.post(url, data, config)
+axios.put(url, data, config)
+
+JWT token must be sent in Authorization header
+
+Rich forms often require:
+conditional logic
+multiple async calls in correct order
+
+🔄 Correct submit flow (mental model)
+Create post
+1. Get image from form
+2. Upload image to backend (Cloudinary)
+3. Receive image URL + public_id
+4. POST /api/posts with post data + image data
+5. Navigate to post page
+
+Update post
+1. If new image selected → upload it
+2. PUT /api/posts/:id with updated fields
+3. Backend deletes old image if needed
+4. Navigate to post page
+
+🧠 Key takeaway (one-liner)
+The submit function does not “save a post” — it coordinates image upload, API calls, and navigation in the correct order.
+
+---- Explaination of other parts of PostForm.txt ----
+
+https://chatgpt.com/s/t_6980189a4a5c81919c56df043fc1eb9d
