@@ -36,7 +36,7 @@ const MyPosts = () => {
               </h1>
               <button
                 onClick={() => navigate("/add-post")}
-                className="m-4 bg-blue-500 text-md text-gray-900 border border-blue-600 font-bold py-2 px-3 rounded-xl"
+                className="m-4 bg-blue-500 text-md text-gray-900 border cursor-pointer border-blue-600 font-bold py-2 px-3 rounded-xl"
               >
                 Add your first post
               </button>
