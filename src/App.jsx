@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+import axios from "./utils/axios.js";
 import { login, logout } from "./store/authSlice";
 import { Footer, Header } from "./components/index.js";
 import { Outlet } from "react-router-dom";

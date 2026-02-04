@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, PostCard } from "../components/index";
-import axios from "axios";
+import axios from "../utils/axios";
 
 const AllPosts = () => {
   const [posts, setPosts] = useState([]);

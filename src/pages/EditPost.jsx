@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, PostForm } from "../components/index";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../utils/axios";
 
 const EditPost = () => {
   const [post, setPost] = useState(null);
