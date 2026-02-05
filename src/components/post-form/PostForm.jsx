@@ -139,7 +139,7 @@ const PostForm = ({ post }) => {
       </div>
       <div className="w-1/3 px-2">
         <Input
-          label="Featured Image :"
+          label="Featured Image(1MB max) :"
           type="file"
           className="mb-4 border border-blue-700"
           accept="image/png, image/jpg, image/jpeg, image/gif"

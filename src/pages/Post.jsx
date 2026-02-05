@@ -48,31 +48,35 @@ export default function Post() {
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center bg-gray-200 mb-4 relative border rounded-xl p-4">
-          <img
-            src={post.featuredImage}
-            alt={post.title}
-            className="rounded-xl"
-          />
+        <div className="flex w-full gap-4">
+          <div className="flex content-center justify-center w-1/2 h-full bg-gray-200 mb-4 relative border rounded-xl p-4">
+            <img
+              src={post.featuredImage}
+              alt={post.title}
+              className="rounded-xl"
+            />
 
-          {isAuthor && (
-            <div className="absolute right-6 top-6">
-              <Link to={`/edit-post/${post._id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
-                  Edit
+            {isAuthor && (
+              <div className="absolute right-6 top-6">
+                <Link to={`/edit-post/${post._id}`}>
+                  <Button bgColor="bg-green-500" className="mr-3">
+                    Edit
+                  </Button>
+                </Link>
+                <Button bgColor="bg-red-500" onClick={deletePost}>
+                  Delete
                 </Button>
-              </Link>
-              <Button bgColor="bg-red-500" onClick={deletePost}>
-                Delete
-              </Button>
+              </div>
+            )}
+          </div>
+          <div className="w-1/2 mt-2">
+            <div className="w-full mb-6">
+              <h1 className="text-2xl font-bold">{post.title}</h1>
             </div>
-          )}
-        </div>
-        <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
-        </div>
-        <div className="browser-css bg-gray-200 p-3 rounded-md">
-          {parse(post.content)}
+            <div className="browser-css bg-gray-200 p-3 rounded-md">
+              {parse(post.content)}
+            </div>
+          </div>
         </div>
       </Container>
     </div>
